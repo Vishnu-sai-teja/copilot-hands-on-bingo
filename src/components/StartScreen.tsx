@@ -4,23 +4,56 @@ interface StartScreenProps {
 
 export function StartScreen({ onStart }: StartScreenProps) {
   return (
-    <div className="flex flex-col items-center justify-center min-h-full p-6 bg-gray-50">
-      <div className="text-center max-w-sm">
-        <h1 className="text-4xl font-bold text-gray-900 mb-2">Bingo Mixer</h1>
-        <p className="text-lg text-gray-600 mb-8">Find your people!</p>
-        
-        <div className="bg-white rounded-lg p-6 shadow-sm border border-gray-200 mb-8">
-          <h2 className="font-semibold text-gray-800 mb-3">How to play</h2>
-          <ul className="text-left text-gray-600 text-sm space-y-2">
-            <li>• Find people who match the questions</li>
-            <li>• Tap a square when you find a match</li>
-            <li>• Get 5 in a row to win!</li>
+    <div className="candy-bg relative flex min-h-full items-center justify-center overflow-hidden px-4 py-8 sm:px-6">
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute -left-14 top-8 h-36 w-36 rounded-full bg-candy-blue/40 blur-sm animate-[candy-float_6s_ease-in-out_infinite]"
+      />
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute -right-8 bottom-10 h-40 w-40 rounded-full bg-candy-fizz/35 blur-sm animate-[candy-float_7s_ease-in-out_infinite]"
+      />
+
+      <div className="candy-panel relative w-full max-w-xl p-6 text-center animate-[candy-pop-in_460ms_ease-out] sm:p-8">
+        <p className="font-display text-[0.62rem] uppercase tracking-[0.22em] text-candy-soda sm:text-xs">
+          Playful Candy Pop
+        </p>
+        <h1 className="mt-3 font-display text-4xl leading-none text-candy-ink sm:text-6xl">
+          Bingo Mixer
+        </h1>
+        <p className="mx-auto mt-4 max-w-md text-base font-semibold text-candy-ink/85 sm:text-lg">
+          Neon sweet, zero awkward. Find your people and make a five-square candy streak.
+        </p>
+
+        <div className="mt-7 rounded-3xl border-2 border-white/80 bg-white/80 p-5 text-left shadow-[0_10px_0_#9defff] sm:p-6">
+          <h2 className="font-display text-sm uppercase tracking-[0.14em] text-candy-ink sm:text-base">
+            How To Play
+          </h2>
+          <ul className="mt-4 space-y-3 text-sm font-medium text-candy-ink/85 sm:text-base">
+            <li className="flex items-start gap-3">
+              <span className="mt-0.5 inline-flex h-6 w-6 items-center justify-center rounded-full bg-candy-fizz text-xs font-black text-white">
+                1
+              </span>
+              <span>Find people who match each prompt.</span>
+            </li>
+            <li className="flex items-start gap-3">
+              <span className="mt-0.5 inline-flex h-6 w-6 items-center justify-center rounded-full bg-candy-soda text-xs font-black text-white">
+                2
+              </span>
+              <span>Tap a square for every match you make.</span>
+            </li>
+            <li className="flex items-start gap-3">
+              <span className="mt-0.5 inline-flex h-6 w-6 items-center justify-center rounded-full bg-candy-lime text-xs font-black text-candy-ink">
+                3
+              </span>
+              <span>Get five in a row to shout BINGO.</span>
+            </li>
           </ul>
         </div>
 
         <button
           onClick={onStart}
-          className="w-full bg-accent text-white font-semibold py-4 px-8 rounded-lg text-lg active:bg-accent-light transition-colors"
+          className="candy-button mt-8 w-full px-8 py-4 text-sm focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-candy-blue/60 focus-visible:ring-offset-2 focus-visible:ring-offset-white sm:text-base"
         >
           Start Game
         </button>

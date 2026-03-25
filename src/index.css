@@ -1,11 +1,35 @@
+@import url('https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;500;600;700;800&family=Bungee&display=swap');
 @import 'tailwindcss';
 
 @theme {
-  --color-accent: #2563eb;
-  --color-accent-light: #3b82f6;
-  --color-marked: #dcfce7;
-  --color-marked-border: #22c55e;
-  --color-bingo: #fbbf24;
+  --color-accent: #ff4db8;
+  --color-accent-light: #ff79cf;
+  --color-marked: #ff8ed8;
+  --color-marked-border: #ff4db8;
+  --color-bingo: #ffd74a;
+
+  --color-candy-fizz: #ff4db8;
+  --color-candy-coral: #ff7a6b;
+  --color-candy-lemon: #ffd74a;
+  --color-candy-lime: #7bff5a;
+  --color-candy-blue: #35d7ff;
+  --color-candy-soda: #00b7ff;
+  --color-candy-ink: #3c1868;
+  --color-candy-paper: #fff9ff;
+
+  --font-display: 'Bungee', 'Baloo 2', 'Trebuchet MS', sans-serif;
+  --font-body: 'Baloo 2', 'Trebuchet MS', 'Verdana', sans-serif;
+}
+
+:root {
+  --candy-bg: radial-gradient(circle at 12% 18%, #ffffff99 0, #ffffff00 30%),
+    radial-gradient(circle at 82% 14%, #35d7ff66 0, #35d7ff00 28%),
+    radial-gradient(circle at 20% 78%, #ff7a6b66 0, #ff7a6b00 32%),
+    radial-gradient(circle at 88% 82%, #7bff5a4d 0, #7bff5a00 24%),
+    linear-gradient(145deg, #fff5cf 0%, #ffe7f6 44%, #dcf9ff 100%);
+  --candy-panel: linear-gradient(145deg, #ffffffde 0%, #fff6ffeb 100%);
+  --candy-chip: linear-gradient(120deg, #ffffffea 0%, #e7fdffea 100%);
+  --ease-candy: cubic-bezier(0.2, 1, 0.25, 1);
 }
 
 html,
@@ -16,6 +40,139 @@ body,
 
 body {
   margin: 0;
-  font-family: system-ui, -apple-system, sans-serif;
+  font-family: var(--font-body);
+  color: #3c1868;
+  background: var(--candy-bg);
+  background-attachment: fixed;
   -webkit-tap-highlight-color: transparent;
+}
+
+button {
+  font: inherit;
+}
+
+@keyframes candy-pop-in {
+  0% {
+    opacity: 0;
+    transform: translateY(28px) scale(0.96);
+  }
+
+  70% {
+    opacity: 1;
+    transform: translateY(-3px) scale(1.01);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes candy-float {
+  0%,
+  100% {
+    transform: translateY(0) rotate(0deg);
+  }
+
+  50% {
+    transform: translateY(-10px) rotate(3deg);
+  }
+}
+
+@keyframes candy-shine {
+  0% {
+    transform: translateX(-120%) skewX(-20deg);
+  }
+
+  100% {
+    transform: translateX(240%) skewX(-20deg);
+  }
+}
+
+@keyframes candy-win-pop {
+  0% {
+    transform: translateY(0) scale(1);
+  }
+
+  100% {
+    transform: translateY(-2px) scale(1.03);
+  }
+}
+
+@layer components {
+  .candy-bg {
+    background: var(--candy-bg);
+  }
+
+  .candy-panel {
+    border-radius: 2rem;
+    border: 4px solid #ffffffbf;
+    background: var(--candy-panel);
+    box-shadow: 0 14px 0 #ffb5e7, 0 26px 45px #ff4db82e;
+    backdrop-filter: blur(8px);
+  }
+
+  .candy-chip {
+    border-radius: 999px;
+    border: 2px solid #ffffffcc;
+    background: var(--candy-chip);
+    box-shadow: 0 6px 0 #35d7ff66;
+  }
+
+  .candy-button {
+    border-radius: 999px;
+    border: 2px solid #ffffffd1;
+    background: linear-gradient(135deg, #ff5fbe 0%, #ff8a6f 48%, #ffd74a 100%);
+    color: #ffffff;
+    font-family: var(--font-display);
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    box-shadow: 0 8px 0 #d7268e, 0 14px 24px #ff4db84a;
+    transition:
+      transform 160ms var(--ease-candy),
+      box-shadow 160ms var(--ease-candy),
+      filter 160ms var(--ease-candy);
+  }
+
+  .candy-button:hover {
+    filter: brightness(1.04);
+  }
+
+  .candy-button:active {
+    transform: translateY(3px);
+    box-shadow: 0 5px 0 #d7268e, 0 8px 14px #ff4db84a;
+  }
+
+  .candy-button-secondary {
+    border-radius: 999px;
+    border: 2px solid #ffffffc7;
+    background: linear-gradient(135deg, #42d9ff 0%, #4eb0ff 100%);
+    color: #ffffff;
+    font-weight: 700;
+    box-shadow: 0 6px 0 #0b84e6;
+    transition:
+      transform 140ms var(--ease-candy),
+      box-shadow 140ms var(--ease-candy),
+      filter 140ms var(--ease-candy);
+  }
+
+  .candy-button-secondary:hover {
+    filter: brightness(1.05);
+  }
+
+  .candy-button-secondary:active {
+    transform: translateY(2px);
+    box-shadow: 0 4px 0 #0b84e6;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 1ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 1ms !important;
+    scroll-behavior: auto !important;
+  }
 }
