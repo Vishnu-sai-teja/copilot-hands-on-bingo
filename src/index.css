@@ -6,6 +6,25 @@
   --color-marked: #dcfce7;
   --color-marked-border: #22c55e;
   --color-bingo: #fbbf24;
+
+  /* candy palette — used by StartScreen Variation A */
+  --color-candy-fizz: #f0047f;
+  --color-candy-soda: #00c2ff;
+  --color-candy-lime: #39ff14;
+  --color-candy-grape: #bf5af2;
+  --color-candy-cherry: #ff375f;
+  --color-candy-lemon: #ffd60a;
+  --color-carnival-dark: #0f0720;
+}
+
+@keyframes candy-float {
+  0%, 100% { transform: translateY(0) rotate(0deg); }
+  50% { transform: translateY(-18px) rotate(8deg); }
+}
+
+@keyframes candy-float-rev {
+  0%, 100% { transform: translateY(0) rotate(0deg); }
+  50% { transform: translateY(18px) rotate(-8deg); }
 }
 
 html,
