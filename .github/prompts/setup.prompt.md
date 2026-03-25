@@ -1,6 +1,7 @@
 ---
 agent: agent
 description: Get my development workspace ready
+model: GPT-5.3-Codex (copilot)
 tools: ['browser', 'execute/runTask', 'read/getTaskOutput', 'execute/runInTerminal', 'read', 'search', 'todo']
 ---
 
